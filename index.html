@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-nnova Design</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="shortcut icon" href="IMG/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="ICON/ColeccionIconos/style.css">
+</head>
+<body>
+
+    <div id="ModalMenu" class="oculto">
+        <div id="ModalContacto">
+            <button onclick="CerrarModal()"><i class="icon icon-Cruz"></i></button>
+            <div class="ModalContenido">
+                <img src="IMG/IlustrativaContacto.jpg" alt="Imagen Ilustrativa - Contacto" class="ModalPortada">
+                <div id="EnlacesContacto">
+                <div id="ListaEnlacesContacto">
+                    <a class="ItemEnlacesContacto" href="https://wa.me" target="_blank">
+                        <i class="icon icon-WhatsApp"></i>
+                        <div>
+                            <span class="TituloContacto">WhatsApp</span>
+                            <span class="DescripcionContacto">Iniciar un chat directo para cualquier asunto</span>
+                        </div>
+                    </a>
+                    <a class="ItemEnlacesContacto" href="mailto:alguien@gmail.com" target="_blank">
+                        <i class="icon icon-Mail2"></i>
+                        <div>
+                            <span class="TituloContacto">E-mail</span>
+                            <span class="DescripcionContacto">Escribir un correo electrónico para compartir más detalles</span>
+                        </div>
+                    </a>
+                    <a class="ItemEnlacesContacto" href="https://docs.google.com/forms/u/0/?pli=1" target="_blank">
+                        <i class="icon icon-Formulario2"></i>
+                        <div>
+                            <span class="TituloContacto">Formulario</span>
+                            <span class="DescripcionContacto">Responder un formulario que te ayudará a compartir los detalles más relevantes de tu proyecto</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="IconosEnlacesContacto">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-Instagram"></i></a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-GitHub"></i></a>
+                    <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-BuymeaCoffee"></i></a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav> <!--Contenedor de la barra de navegación-->
+        <div id="ContenedorIzq"> <!--Contenedor izquierdo-->
+            <img src="IMG/Logo.svg" alt="Logo de E-nnova Design" id="LogoNav"> <!--Logotipo-->
+
+            <div id="MenuHamburguesa">
+                <i class="icon icon-MenuHam"></i>
+            </div>
+
+            <ul id="EnlacesNav"> <!--Lista de enlaces-->
+                <li><a class="EnlaceIndNav" href="#Inicio">Inicio</a></li>
+                <li><a class="EnlaceIndNav" href="#Portafolio">Portafolio</a></li>
+                <li><a class="EnlaceIndNav" href="#Servicios">Servicios</a></li>
+                <li><a class="EnlaceIndNav" href="#AcercaDe">Acerca de</a></li>
+                <li><a class="EnlaceIndNav" href="#Testimonios">Testimonios</a></li>
+            </ul>
+        </div>
+
+        <div> <!--Contenedor derecho-->
+            <ul>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-Instagram1 iconnav"></i></a></li> <!--Contenedores de íconos (Se pondrán después)-->
+                <li><a href="https://wa.me" target="_blank" rel="noopener noreferrer"><i class="icon icon-WhatsApp iconnav"></i></a></li>
+                <li><button onclick="AbrirModal()"><span class="TextoDegradado"><i class="icon icon-AvionPapel" id="iconbutton"></i> Contacto</span></button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="Inicio">
+        <h1>Inicia con <span>calidad</span></h1>
+        <span>Haz que tu idea cuente con una valiosa presencia digital desde su nacimiento. Ideal para cualquier proyecto, accesible desde su comienzo.</span>
+        <button onclick="AbrirModal()">Me interesa</button>
+    </main>
+
+    <section id="Portafolio">
+        <h2>Portafolio</h2>
+        <select id="FiltroResponsiveListaServicios" onchange="FiltrarPortafolio(this.value)">
+            <option value="0" selected>Todo</option>
+            <option value="1">Diseño Web</option>
+            <option value="2">Diseño Publicitario</option>
+            <option value="3">Identidad de Marca</option>
+            <option value="4">UI/UX</option>
+            <option value="5">Identidad de Creador</option>
+        </select>
+
+        <div id="FiltroListaServicios">
+            <ul><button onclick="FiltrarPortafolio(0)" class="Filtro FiltroSeleccionado">Todo</button></ul>
+            <ul><button onclick="FiltrarPortafolio(1)" class="Filtro">Diseño Web</button></ul>
+            <ul><button onclick="FiltrarPortafolio(2)" class="Filtro">Diseño Publicitario</button></ul>
+            <ul><button onclick="FiltrarPortafolio(3)" class="Filtro">Identidad de Marca</button></ul>
+            <ul><button onclick="FiltrarPortafolio(4)" class="Filtro">UI/UX</button></ul>
+            <ul><button onclick="FiltrarPortafolio(5)" class="Filtro">Identidad de Creador</button></ul>
+        </div>
+        <div id="GaleriaProyectos">
+            <!-- Inicia vacío y se rellena con JS según un archivo JSON que funciona como API local -->
+        </div>
+    </section>
+
+    <section id="Servicios">
+        <h2>Servicios</h2>
+        <div id="ListaServicios">
+            <div class="TarjetaServicio">
+                <span class="NombreServicio">Diseño Web</span>
+                <span class="DescripcionServicio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perferendis eum, cumque repellendus sit ipsum ex quasi, totam enim vero quo aliquid nemo quae rerum at et delectus porro harum!</span>
+            </div>
+            <div class="TarjetaServicio">
+                <span class="NombreServicio">Diseño Publicitario</span>
+                <span class="DescripcionServicio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perferendis eum, cumque repellendus sit ipsum ex quasi, totam enim vero quo aliquid nemo quae rerum at et delectus porro harum!</span>
+            </div>
+            <div class="TarjetaServicio">
+                <span class="NombreServicio">Identidad de Marca</span>
+                <span class="DescripcionServicio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perferendis eum, cumque repellendus sit ipsum ex quasi, totam enim vero quo aliquid nemo quae rerum at et delectus porro harum!</span>
+            </div>
+            <div class="TarjetaServicio">
+                <span class="NombreServicio">Diseño UI / UX</span>
+                <span class="DescripcionServicio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perferendis eum, cumque repellendus sit ipsum ex quasi, totam enim vero quo aliquid nemo quae rerum at et delectus porro harum!</span>
+            </div>
+            <div class="TarjetaServicio">
+                <span class="NombreServicio">Identidad de creador</span>
+                <span class="DescripcionServicio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perferendis eum, cumque repellendus sit ipsum ex quasi, totam enim vero quo aliquid nemo quae rerum at et delectus porro harum!</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="AcercaDe">
+        <div id="ContenedorLogoAcercaDe">
+            <img src="IMG/Logo.svg" alt="Logo de E-nnova Design" id="LogoAcercaDe">
+        </div>
+        <div id="ContenedorTextoAcercaDe">
+            <span class="SecText">Acerca de</span>
+            <span class="MainText">E-nnova Design</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet pariatur nulla animi nemo? Quasi, quidem repellat? Eos, tempora repellendus deserunt at praesentium reiciendis dolor. Eveniet placeat autem omnis cumque laboriosam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet pariatur nulla animi nemo? Quasi, quidem repellat? Eos, tempora repellendus deserunt at praesentium reiciendis dolor. Eveniet placeat autem omnis cumque laboriosam.</p>
+            <a href="DOCS/CurriculumEjemplo.pdf" download="Currículum de Ejemplo" class="CTA">Descargar CV</a>
+        </div>
+    </section>
+
+    <section id="Testimonios">
+        <h2>Testimonios</h2>
+        <div class="ListaTestimonios">
+          <div class="Testimonio">
+            <p class="Cita">"Un servicio excelente, superó todas nuestras expectativas."</p>
+            <p class="Autor">— Ana López, CEO de Creativa</p>
+          </div>
+          <div class="Testimonio">
+            <p class="Cita">"Profesionalismo y creatividad en cada detalle. ¡Recomendado!"</p>
+            <p class="Autor">— Carlos Méndez, Fundador de StartApp</p>
+          </div>
+          <div class="Testimonio">
+            <p class="Cita">"Nos ayudaron a dar identidad a nuestra marca con un diseño único."</p>
+            <p class="Autor">— Laura Ramírez, Directora de Nova Studio</p>
+          </div>
+        </div>
+
+        <div class="CarruselEmpresas">
+            <div class="CintaLogos">
+              <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" />
+              <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" />
+              <img src="https://cdn.simpleicons.org/amazon/ffffff" alt="Amazon" />
+              <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" />
+              <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" />
+              <img src="https://cdn.simpleicons.org/beats/ffffff" alt="Microsoft" />
+              <img src="https://cdn.simpleicons.org/huawei/ffffff" alt="Adobe" />
+              <img src="https://cdn.simpleicons.org/airbnb/ffffff" alt="Airbnb" />
+            </div>
+
+            <div class="CintaLogos">
+              <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" />
+              <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" />
+              <img src="https://cdn.simpleicons.org/amazon/ffffff" alt="Amazon" />
+              <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" />
+              <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" />
+              <img src="https://cdn.simpleicons.org/beats/ffffff" alt="Microsoft" />
+              <img src="https://cdn.simpleicons.org/huawei/ffffff" alt="Adobe" />
+              <img src="https://cdn.simpleicons.org/airbnb/ffffff" alt="Airbnb" />
+            </div>
+
+            <div class="CintaLogos">
+              <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" />
+              <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" />
+              <img src="https://cdn.simpleicons.org/amazon/ffffff" alt="Amazon" />
+              <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" />
+              <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" />
+              <img src="https://cdn.simpleicons.org/beats/ffffff" alt="Microsoft" />
+              <img src="https://cdn.simpleicons.org/huawei/ffffff" alt="Adobe" />
+              <img src="https://cdn.simpleicons.org/airbnb/ffffff" alt="Airbnb" />
+            </div>
+
+            <div class="CintaLogos">
+              <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" />
+              <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" />
+              <img src="https://cdn.simpleicons.org/amazon/ffffff" alt="Amazon" />
+              <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" />
+              <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" />
+              <img src="https://cdn.simpleicons.org/beats/ffffff" alt="Microsoft" />
+              <img src="https://cdn.simpleicons.org/huawei/ffffff" alt="Adobe" />
+              <img src="https://cdn.simpleicons.org/airbnb/ffffff" alt="Airbnb" />
+            </div>
+          </div>
+    </section>
+
+    <footer>
+        <div>
+            <div>
+                <img src="IMG/LogoHorizontal.svg" alt="Logo de E-nnova Design">
+                <ul class="ListaEnlacesContacto">
+                    <li><a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-WhatsApp"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-Instagram"></i></a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-GitHub"></i></a></li>
+                    <li><a href="mailto:alguien@gmail.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-Mail2"></i></a></li>
+                    <li><a href="https://docs.google.com/forms/u/0/?pli=1" target="_blank" rel="noopener noreferrer"><i class="icon icon-Formulario2"></i></a></li>
+                    <li><a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer"><i class="icon icon-BuymeaCoffee"></i></a></li>
+                </ul>
+            </div>
+            <div id="DivEnlacesFooter">
+                <ul id="ListaEnlacesFooter">
+                    <li><a href="#Inicio">Inicio</a></li>
+                    <li><a href="#Portafolio">Portafolio</a></li>
+                    <li><a href="#Servicios">Servicios</a></li>
+                    <li><a href="#AcercaDe">AcercaDe</a></li>
+                    <li><a href="#Testimonios">Testimonios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            E-nnova Design 2024 - Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

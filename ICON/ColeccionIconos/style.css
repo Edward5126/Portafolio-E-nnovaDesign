@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'PersonalIconCollection';
+  src:
+    url('fonts/PersonalIconCollection.ttf?srxfb7') format('truetype'),
+    url('fonts/PersonalIconCollection.woff?srxfb7') format('woff'),
+    url('fonts/PersonalIconCollection.svg?srxfb7#PersonalIconCollection') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'PersonalIconCollection' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Mail2:before {
+  content: "\e923";
+}
+.icon-Formulario2:before {
+  content: "\e924";
+}
+.icon-AvionPapel:before {
+  content: "\e922";
+}
+.icon-Altavoz:before {
+  content: "\e919";
+}
+.icon-LinkExterno:before {
+  content: "\e91a";
+}
+.icon-Formulario:before {
+  content: "\e91b";
+}
+.icon-GitHub:before {
+  content: "\e91c";
+}
+.icon-Id:before {
+  content: "\e91d";
+}
+.icon-Laptop:before {
+  content: "\e91e";
+}
+.icon-Mail:before {
+  content: "\e91f";
+}
+.icon-Compartir:before {
+  content: "\e920";
+}
+.icon-CodLaptop:before {
+  content: "\e921";
+}
+.icon-Info:before {
+  content: "\e918";
+}
+.icon-Lupa:before {
+  content: "\e917";
+}
+.icon-Casa:before {
+  content: "\e916";
+}
+.icon-SonidoOn:before {
+  content: "\e913";
+}
+.icon-SonidoOf:before {
+  content: "\e914";
+}
+.icon-SonidoNone:before {
+  content: "\e915";
+}
+.icon-Toggle:before {
+  content: "\e901";
+}
+.icon-Toggle2:before {
+  content: "\e900";
+}
+.icon-MenuHam:before {
+  content: "\e902";
+}
+.icon-Cruz:before {
+  content: "\e903";
+}
+.icon-Flecha-izq:before {
+  content: "\e904";
+}
+.icon-Aleatorio:before {
+  content: "\e905";
+}
+.icon-Flecha-der:before {
+  content: "\e906";
+}
+.icon-Instagram1:before {
+  content: "\e907";
+}
+.icon-Instagram2:before {
+  content: "\e908";
+}
+.icon-Compartir2:before {
+  content: "\e909";
+}
+.icon-WhatsApp2:before {
+  content: "\e90a";
+}
+.icon-Facebook2:before {
+  content: "\e90b";
+}
+.icon-Twitter2:before {
+  content: "\e90c";
+}
+.icon-Portapapeles:before {
+  content: "\e90d";
+}
+.icon-Portapapeles-ok:before {
+  content: "\e90e";
+}
+.icon-BuymeaCoffee:before {
+  content: "\e90f";
+}
+.icon-Paypal:before {
+  content: "\e910";
+}
+.icon-Corazon:before {
+  content: "\e911";
+}
+.icon-Taza-cafe:before {
+  content: "\e912";
+}
+.icon-Instagram:before {
+  content: "\ea92";
+}
+.icon-WhatsApp:before {
+  content: "\ea93";
+}

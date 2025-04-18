@@ -1,0 +1,884 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --Color-Principal-A: #DAE15C;
+    --Color-Principal-B: #47B449;
+    --Degradado-Principal: linear-gradient(to top, #47B449, #DAE15C);
+    --Degradado-Hover: linear-gradient(to top, #53d255, #f1f967);
+    --Degradado-Active: linear-gradient(to top, #3a953c, #afb54b);
+
+    --Fondo: #121212;
+    --TextoPrincipal: whitesmoke;
+    --TextoSecundario: rgba(255, 255, 255, 0.6);
+    --TextoResaltado: #8fd33d;
+
+    --Tarjetas: rgba(217, 217, 217, 0.03);
+    --Contraste: rgba(217, 217, 217, 0.1);
+    --FiltroSeleccionado: #383838;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    position: fixed;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--TextoResaltado);
+    border-radius: 5px;
+  }
+
+  
+  /* Contenido general y fondo de la página */
+  body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    color: var(--TextoPrincipal);
+    font-size: 1em;
+    background: var(--Fondo);
+  }
+
+/*  Estilos Generales del <nav>  */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background: #151515bb;
+    border: var(--Contraste) 1px solid;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: calc(80% - 64px);
+    font-size: 0.75em;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  nav > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  #LogoNav {
+    height: 32px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: var(--TextoSecundario);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: var(--TextoResaltado);
+  }
+  
+  nav > div:last-child ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .iconnav {
+    font-size: 1.46rem;
+  }
+
+  #iconbutton {
+    font-size: 0.8rem;
+  }
+  
+  nav button {
+    background-color: #212121bf;
+    border: 1px solid var(--TextoResaltado);
+    color: var(--TextoResaltado);
+    padding: 0.4rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  nav button:hover {
+    background: var(--Degradado-Principal);
+    color: var(--Fondo);
+  }
+
+  #MenuHamburguesa {
+    display: none;
+  }
+
+  .oculto {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .ScrollEstatico {
+    overflow: hidden;
+  }
+
+  #ModalMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100dvh;
+    width: 100vw;
+    background: #121212dd;
+    backdrop-filter: blur(5px);
+    z-index: 1999;
+    transition: all ease 0.3s;
+  }
+
+  #ModalContacto {
+    background-color: var(--Fondo);
+    border: 1px solid var(--Contraste);
+    border-radius: 15px;
+    height: 90dvh;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #ModalContacto a {
+    text-decoration: none;
+  }
+
+  #ModalContacto > button {
+    position: absolute;
+    top: 7.5dvh;
+    right: 4vw;
+    color: var(--TextoPrincipal);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ModalContenido {
+    gap: 3rem;
+    width: 93%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ModalPortada {
+    height: 100%;
+    border: 1px solid var(--Contraste);
+    border-radius: 10px;
+    transition: all ease 0.3s;
+  }
+
+  .ModalPortada:hover {
+    transform: scale(1.01);
+  }
+
+  #EnlacesContacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  #ListaEnlacesContacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .ItemEnlacesContacto {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--Tarjetas);
+    border: 1px solid var(--Contraste);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+  }
+
+  .ItemEnlacesContacto:hover {
+    transform: scale(1.02);
+  }
+
+  .ItemEnlacesContacto > * {
+    text-align: left;
+  }
+
+  .ItemEnlacesContacto > i {
+    color: var(--TextoPrincipal);
+    font-size: 3rem;
+    width: 3rem;
+    text-align: center;
+  }
+
+  .TituloContacto {
+    color: var(--TextoPrincipal);
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 1.1rem;
+  }
+
+  .DescripcionContacto {
+    display: block;
+    color: var(--TextoSecundario);
+  }
+
+  .IconosEnlacesContacto > a > i {
+    color: var(--TextoPrincipal);
+    opacity: 0.4;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 0 0.5rem;
+  }
+
+  .IconosEnlacesContacto > a > i:hover {
+    color: var(--TextoPrincipal);
+    opacity: 1;
+  }
+
+  main, section {
+    min-height: calc(100vh - 8.7rem);
+    width: calc(100vw - 5px - (2 * (((100vw - (80% - 64px)) / 2) - 2rem)));
+    padding: 4.6rem calc(((100vw - (80% - 64px)) / 2) - 2rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  main {
+    background: var(--Fondo) url(../IMG/HeroImage.png) center center
+      no-repeat fixed;
+    background-size: cover;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  main > * {
+    z-index: 50;
+  }
+
+  main::after {
+    content: "";
+    position: absolute;
+    bottom: -1.1vh;
+    left: 0;
+    width: 100%;
+    height: 35vh;
+    background: linear-gradient(to bottom, transparent, var(--Fondo));
+    pointer-events: none;
+  }
+
+  h1 {
+    font-weight: 200;
+    letter-spacing: 0.2rem;
+    font-size: 4rem;
+    max-width: 60%;
+  }
+
+  h1 > span {
+    font-weight: 600;
+  }
+
+  main > span {
+    max-width: 45%;
+    margin-top: 1em;
+    margin-left: 6px;
+  }
+
+  main > span {
+    color: var(--TextoSecundario);
+  }
+
+  main > button, .CTA {
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--Degradado-Principal);
+    color: var(--Fondo);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    margin-top: 10vh;
+  }
+
+  main > button:hover, .CTA:hover {
+    background: var(--Degradado-Hover);
+  }
+
+  main > button:active, .CTA:active {
+    background: var(--Degradado-Active);
+  }
+
+  h2 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+  }
+
+  #FiltroListaServicios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+  }
+
+  #FiltroListaServicios  button {
+    padding: 0.25rem 1em;
+    color: var(--TextoSecundario);
+    border: 1px solid transparent;
+    margin-bottom: 2rem;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+  }
+
+  #FiltroListaServicios  button:hover {
+    color: var(--TextoPrincipal);
+    transform: scale(1.03);
+  }
+
+  #FiltroListaServicios button.FiltroSeleccionado {
+    background: var(--FiltroSeleccionado);
+    color: var(--TextoPrincipal);
+    transform: scale(1.05);
+  }
+
+  #GaleriaProyectos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    /* grid-template-rows: repeat(2, 1fr); */
+    /* grid-auto-rows: calc((100% - 20px) / 2); */
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+    justify-items: center;
+}
+
+  #GaleriaProyectos > a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  #GaleriaProyectos > a:hover .ImagenProyecto {
+    filter: none;
+    transform: scale(1.02);
+  }
+
+  .TarjetaProyecto {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ImagenProyecto {
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--Contraste);
+    filter: grayscale();
+    transition: all ease 0.3s;
+    
+  }
+
+  .NombreProyecto {
+    font-size: 0.85rem;
+    margin-top: 1em;
+    color: var(--TextoPrincipal);
+  }
+
+  .DescripcionProyecto {
+    color: var(--TextoSecundario);
+    font-size: 0.7rem;
+    margin-bottom: 1em;
+  }
+
+  #ListaServicios {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .TarjetaServicio {
+    background-color: var(--Tarjetas);
+    border: 1px solid var(--Contraste);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all ease 0.3s;
+  }
+
+  .TarjetaServicio:hover {
+    transform: scale(1.01);
+  }
+
+  .NombreServicio {
+    width: 100%;
+    display: block;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--Contraste);
+  }
+
+  .DescripcionServicio {
+    color: var(--TextoSecundario);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  #AcercaDe {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #ContenedorLogoAcercaDe {
+    width: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  #LogoAcercaDe {
+    width:70%;
+    transition: all ease 0.3s;
+  }
+
+  #LogoAcercaDe:hover {
+    transform: scale(1.02);
+  }
+
+  #AcercaDe > div {
+    max-width: 50%;
+  }
+
+  #ContenedorTextoAcercaDe {
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .SecText {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
+
+  .MainText {
+    font-size: 2.8rem;
+
+  }
+
+  #AcercaDe p {
+    color: var(--TextoSecundario);
+    margin-top: 1rem;
+    text-align: justify;
+  }
+
+  .CTA {
+    align-self: flex-end;
+    text-decoration: none;
+  }
+
+  .Testimonios {
+    padding: 4rem 2rem;
+    background-color: var(--Tarjetas);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .Testimonios h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .ListaTestimonios {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .Testimonio {
+    background: var(--Tarjetas);
+    border-radius: 1rem;
+    border: 1px solid var(--Contraste);
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .Testimonio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  
+  .Cita {
+    font-size: 1.1rem;
+    color: var(--TextoPrincipal);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  
+  .Autor {
+    font-weight: 200;
+    color: var(--TextoSecundario);
+    font-size: 0.95rem;
+  }
+
+  .CarruselEmpresas {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    position: relative;
+    gap: 4rem;
+    display: flex;
+    margin-top: 1rem;
+    mask-image: linear-gradient(90deg, transparent, var(--Fondo) 20%, var(--Fondo) 80%, transparent);
+  }
+
+  .CarruselEmpresas:hover .CintaLogos {
+    animation-play-state: paused;
+  }
+  
+  .CintaLogos {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scrollInfinito 30s linear infinite;
+    white-space: nowrap;
+  }
+  
+  .CintaLogos img {
+    height: 40px;
+    /* filter: invert(1) grayscale(1); */
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+    /* cursor: pointer; */
+  }
+  
+  .CintaLogos img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  #FiltroResponsiveListaServicios {
+    display: none;
+  }
+  
+  /* Animación infinita */
+  @keyframes scrollInfinito {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 4rem));
+    }
+  }
+  
+  footer {
+    background-color: #111;
+    color: var(--Texto); 
+    padding: 3rem 2rem;
+    font-family: inherit;
+    border-top: 1px solid var(--Contraste);
+  }
+  
+  footer > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  footer img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  footer ul li i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--TextoPrincipal);
+    opacity: 0.4;
+    transition: all 0.3s ease;
+  }
+  
+  footer ul li i:hover {
+    opacity: 1;
+  }
+  
+  #ListaEnlacesFooter {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  #ListaEnlacesFooter li a {
+    color: var(--TextoSecundario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+  }
+  
+  #ListaEnlacesFooter li a:hover {
+    color: var(--TextoResaltado);
+  }
+
+  .ListaEnlacesContacto a {
+    text-decoration: none;
+  }
+  
+  footer > div:last-child {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--Texto);
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 480px){
+
+    nav {
+      top: 3.6vh;
+      right: 7vw;
+      left: 7vw;
+      margin: 0;
+      justify-content: center;
+      padding: 0;
+      background: none;
+      border: none;
+      backdrop-filter: none;
+      max-width: none;
+      width: auto;
+    }
+
+    #LogoNav {
+      z-index: 2100;
+      filter: drop-shadow(0 0 0.1rem var(--Fondo));
+    }
+
+    #ContenedorIzq {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #MenuHamburguesa {
+      display: block;
+      color: var(--TextoPrincipal);
+      z-index: 2999;
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 0.1rem var(--Fondo));
+    }
+
+    #MenuHamburguesa:hover {
+      opacity: 0.9;
+    }
+
+    #MenuHamburguesa:active {
+      opacity: 0.6;
+    }
+
+    .EnlaceIndNav {
+      font-size: 1rem;
+      color: var(--TextoPrincipal);
+    }
+
+    .activo {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    nav > div > ul {
+      flex-direction: column;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: var(--Fondo);
+      backdrop-filter: blur(5px);
+      z-index: 2800;
+      transition: all ease 0.3s;
+      margin: 0;
+      padding-top: 20vh;
+    }
+
+    nav button {
+      display: none;
+    }
+
+    .iconnav {
+      display: none;
+    }
+
+    main {
+      align-items: center;
+      text-align: center;
+    }
+
+    main > span {
+      color: var(--TextoPrincipal);
+      max-width: none;
+      /* text-align: center; */
+    }
+
+    h1 {
+      max-width: none;
+      margin-bottom: 3rem;
+    }
+
+    main::after {
+      bottom: -10vh;
+      height: 35vh;
+    }
+
+    .ModalPortada {
+      display: none;
+    }
+
+    #FiltroListaServicios {
+      display: none;
+    }
+
+    #ModalContacto > button {
+      position: absolute;
+      top: 7vh;
+      right: 7vw;
+      color: var(--TextoPrincipal);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #FiltroResponsiveListaServicios {
+      display: block;
+    }
+
+    #GaleriaProyectos {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr; 
+      /* grid-template-rows: repeat(2, 1fr); */
+      /* grid-auto-rows: calc((100% - 20px) / 2); */
+      grid-column-gap: 25px;
+      grid-row-gap: 20px;
+      justify-items: center;
+    }
+
+    #AcercaDe {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2vh;
+    }
+
+    #AcercaDe > div {
+      max-width: none;
+    }
+
+    #ContenedorTextoAcercaDe {
+      text-align: center;
+      margin: 0;
+      width: 100%;
+      align-content: center;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #ContenedorLogoAcercaDe {
+      width: 70%;
+      margin-top: 3vh;
+    }
+
+    #LogoAcercaDe {
+      width: 100%;
+    }
+
+    .CTA {
+      margin-top: 4vh;
+      align-self: normal;
+      max-width: 35%;
+      text-align: center;
+    }
+
+    #DivEnlacesFooter {
+      display: none;
+    }
+
+    footer > div:first-child {
+      justify-content: center;
+    }
+
+    #FiltroResponsiveListaServicios {
+      background-color: var(--Tarjetas);
+      color: var(--TextoPrincipal);
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid var(--Contraste);
+      margin-bottom: 2rem;
+    }
+  }
