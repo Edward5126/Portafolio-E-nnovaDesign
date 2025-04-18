@@ -14,7 +14,7 @@ function CerrarModal() {
 
 var ListaProyectosGlobal;
 
-fetch("../API/Proyectos.JSON")
+fetch("API/Proyectos.JSON")
 .then(response => response.json())
 .then(API => IniciarPortafolio(API))
 .catch(error => console.error("Error al recuperar la lista de Proyectos (API/Proyectos.JSON)"));
