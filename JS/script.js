@@ -107,9 +107,9 @@ BotonMenu.addEventListener('click', () => {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./serviceworker.js')
-        .then(reg => console.log('✅ Service Worker registrado', reg))
-        .catch(err => console.error('❌ Error al registrar Service Worker', err));
+        .then(reg => console.log('Service Worker registrado', reg))
+        .catch(err => console.error('Error al registrar Service Worker', err));
     });
 } else {
-    console.warn('🚫 Service Worker no soportado en este navegador.');
+    console.warn('Service Worker no soportado en este navegador.');
 }
