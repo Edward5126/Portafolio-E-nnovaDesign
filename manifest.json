@@ -1,0 +1,20 @@
+{
+    "name": "E-nnova Design",
+    "short_name": "E-nnova Design",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#121212",
+    "description": "Portafolio profesional como diseñador web E-nnova Design.",
+    "orientation": "portrait",
+    "lang": "Spanish",
+    "categories" : ["business", "services"],
+    "icons": [
+      {
+        "src": "IMG/Logo.svg",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    ]
+  }
+  
