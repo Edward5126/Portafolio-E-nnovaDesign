@@ -409,6 +409,10 @@ nav {
     transform: scale(1.02);
   }
 
+  .NoClick {
+    cursor: default;
+  }
+
   .TarjetaProyecto {
     width: 100%;
     height: 100%;

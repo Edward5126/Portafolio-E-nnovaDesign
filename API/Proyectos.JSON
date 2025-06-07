@@ -1,33 +1,45 @@
 [
     {
-      "nombre": "Proyecto 1",
-      "categorias": ["Diseño Web", "UI / UX"],
-      "imagen": "https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "enlace": "https://www.google.com"
+      "nombre": "Atlantis Force",
+      "categorias": ["Diseño Web", "Diseño Publicitario", "Identidad de Marca"],
+      "imagen": "IMG/PROJECTS/Atlantis.jpg",
+      "logo": "IMG/PROJECTS/ICONS/AtlantisLogo.svg",
+      "enlace": "https://www.instagram.com/atlantis_force/"
     },
     {
-      "nombre": "Proyecto 2",
-      "categorias": ["UI / UX"],
-      "imagen": "https://images.unsplash.com/photo-1531161339673-a943dd10e29f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "enlace": "https://www.snapchat.com/es"
+      "nombre": "Wit Set",
+      "categorias": ["Diseño Web", "Identidad de Marca"],
+      "imagen": "IMG/PROJECTS/WitSet.jpg",
+      "logo": "IMG/PROJECTS/ICONS/WitSetLogo.svg",
+      "enlace": "https://edward5126.github.io/ColeccionWitSet/"
     },
     {
-      "nombre": "Proyecto 3",
+      "nombre": "FI Pocket",
+      "categorias": ["Diseño Web", "UI / UX","Identidad de Marca"],
+      "imagen": "IMG/PROJECTS/FIPocket.jpg",
+      "logo": "IMG/PROJECTS/ICONS/FIPocketLogo.svg",
+      "enlace": "https://rasdevelopment.github.io/Fi-Pocket/"
+    },
+    {
+      "nombre": "Panadería Carim",
       "categorias": ["Diseño Publicitario", "Identidad de Marca"],
-      "imagen": "https://images.unsplash.com/photo-1662947036644-ecfde1221ac7?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "enlace": "https://www.microsoft.com/es-mx"
+      "imagen": "IMG/PROJECTS/Carim.jpg",
+      "logo": "IMG/PROJECTS/ICONS/CarimLogo.svg",
+      "enlace": "https://www.facebook.com/profile.php?id=100026426454669"
     },
     {
-      "nombre": "Proyecto 4",
-      "categorias": ["Diseño Publicitario", "Identidad de Creador"],
-      "imagen": "https://images.unsplash.com/photo-1656639969801-74272456f5c0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "enlace": "https://www.youtube.com"
+      "nombre": "CAFI",
+      "categorias": ["Identidad de Marca"],
+      "imagen": "IMG/PROJECTS/CAFI.jpg",
+      "logo": "IMG/PROJECTS/ICONS/CAFILogo.svg",
+      "enlace": "https://www.instagram.com/cafi.uady/"
     },
     {
-      "nombre": "Proyecto 5",
-      "categorias": ["Diseño Publicitario", "Identidad de Creador"],
-      "imagen": "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "enlace": "https://www.facebook.com"
+      "nombre": "Selección de Tenis de Mesa FIUADY",
+      "categorias": ["Identidad de Marca"],
+      "imagen": "IMG/PROJECTS/STMFIUADY.jpg",
+      "logo": "IMG/PROJECTS/ICONS/STMFIUADYLogo.svg",
+      "enlace": ""
     }
   ]
   

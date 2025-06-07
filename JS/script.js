@@ -21,7 +21,34 @@ fetch("API/Proyectos.JSON")
 
 function IniciarPortafolio(ListaAPI){
     LlenarPortafolio(ListaAPI);
+    LlenarCintaTestimonios(ListaAPI);
     ListaProyectosGlobal = ListaAPI;
+}
+
+function LlenarCintaTestimonios(ListaProyectos) {
+    let TotalLogos = 0;
+    let TotalIndLogos = 0;
+    let ContenedorCarrusel = document.querySelector(".CarruselEmpresas");
+
+    const CintaLogos = document.createElement("div");
+    CintaLogos.className = "CintaLogos";
+
+    ListaProyectos.forEach(Proyecto => {
+        TotalIndLogos++;
+        const item = document.createElement("img");
+        item.alt = Proyecto.nombre;
+        item.src = Proyecto.logo;
+        CintaLogos.appendChild(item);
+    });
+
+    do {
+        const SiguienteCintaLogos = CintaLogos.cloneNode(true);
+        ContenedorCarrusel.appendChild(SiguienteCintaLogos);
+        TotalLogos += TotalIndLogos;
+    } while (TotalLogos < 32);
+
+    console.log(TotalIndLogos);
+    console.log(TotalLogos);
 }
 
 function LlenarPortafolio(ListaProyectos) {
@@ -29,19 +56,37 @@ function LlenarPortafolio(ListaProyectos) {
     document.getElementById("GaleriaProyectos").innerHTML = "";
 
     ListaProyectos.forEach(Proyecto => {
-        let ListaServicios = "";
+        if (Proyecto.enlace != "") {
+            let ListaServicios = "";
 
-        Proyecto.categorias.forEach(cat => {
-            ListaServicios += cat + ", ";
-        });
-        document.getElementById("GaleriaProyectos").innerHTML += `
-            <a href="${Proyecto.enlace}" target="_blank" rel="noopener noreferrer">
-                <div class="TarjetaProyecto">
-                    <img src="${Proyecto.imagen}" alt="${Proyecto.nombre}" class="ImagenProyecto">
-                    <span class="NombreProyecto">${Proyecto.nombre}</span><br>
-                    <span class="DescripcionProyecto">${ListaServicios.slice(0, -2)}</span>
-                </div>
-            </a>`;
+            Proyecto.categorias.forEach(cat => {
+                ListaServicios += cat + ", ";
+            });
+        
+            document.getElementById("GaleriaProyectos").innerHTML += `
+                <a href="${Proyecto.enlace}" target="_blank" rel="noopener noreferrer">
+                    <div class="TarjetaProyecto">
+                        <img src="${Proyecto.imagen}" alt="${Proyecto.nombre}" class="ImagenProyecto">
+                        <span class="NombreProyecto">${Proyecto.nombre}</span><br>
+                        <span class="DescripcionProyecto">${ListaServicios.slice(0, -2)}</span>
+                    </div>
+                </a>`;
+        } else {
+            let ListaServicios = "";
+
+            Proyecto.categorias.forEach(cat => {
+                ListaServicios += cat + ", ";
+            });
+
+            document.getElementById("GaleriaProyectos").innerHTML += `
+                <a href="${Proyecto.enlace}" onClick="event.preventDefault()" target="_blank" rel="noopener noreferrer" class="NoClick">
+                    <div class="TarjetaProyecto">
+                        <img src="${Proyecto.imagen}" alt="${Proyecto.nombre}" class="ImagenProyecto">
+                        <span class="NombreProyecto">${Proyecto.nombre}</span><br>
+                        <span class="DescripcionProyecto">${ListaServicios.slice(0, -2)}</span>
+                    </div>
+                </a>`;
+            }
     });
 }
 
