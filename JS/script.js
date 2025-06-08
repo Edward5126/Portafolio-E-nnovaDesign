@@ -149,12 +149,80 @@ BotonMenu.addEventListener('click', () => {
   }
 });
 
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//         navigator.serviceWorker.register('./serviceworker.js')
+//         .then(reg => console.log('Service Worker registrado', reg))
+//         .catch(err => console.error('Error al registrar Service Worker', err));
+//     });
+// } else {
+//     console.warn('Service Worker no soportado en este navegador.');
+// }
+
+// Registro del Service Worker
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./serviceworker.js')
-        .then(reg => console.log('Service Worker registrado', reg))
-        .catch(err => console.error('Error al registrar Service Worker', err));
-    });
-} else {
-    console.warn('Service Worker no soportado en este navegador.');
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(registration => {
+        console.log('✅ Service Worker registrado:', registration.scope);
+
+        // Detectar si hay una nueva versión
+        registration.onupdatefound = () => {
+          const newWorker = registration.installing;
+          newWorker.onstatechange = () => {
+            if (
+              newWorker.state === 'installed' &&
+              navigator.serviceWorker.controller
+            ) {
+              // Ya hay una versión activa, así que esto es una nueva versión
+              mostrarAvisoDeActualización();
+            }
+          };
+        };
+      })
+      .catch(error => {
+        console.error('❌ Error al registrar el Service Worker:', error);
+      });
+  });
+}
+
+// Mostrar mensaje al usuario para recargar
+function mostrarAvisoDeActualización() {
+  const aviso = document.createElement('div');
+  aviso.innerHTML = `
+    <div style="
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: #222;
+      color: white;
+      padding: 1em 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 9999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: sans-serif;
+    ">
+      <span>🔄 Nueva versión disponible</span>
+      <button style="
+        margin-left: 1em;
+        background: #00cc88;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 6px;
+        cursor: pointer;
+      ">Actualizar</button>
+    </div>
+  `;
+
+  const boton = aviso.querySelector('button');
+  boton.addEventListener('click', () => {
+    window.location.reload(); // Recarga para usar la nueva versión
+  });
+
+  document.body.appendChild(aviso);
 }

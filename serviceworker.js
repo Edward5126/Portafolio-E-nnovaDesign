@@ -1,8 +1,7 @@
-// Nombre de la caché
-const NombreCache = 'Portafolio_Ennova-Design';
+const CACHE_NAME = 'Portafolio_Ennova-Design'; // Ya no necesitas cambiarlo manualmente
 
-// Archivos a cachear
-const URLsaCache = [
+// Archivos base a precachear
+const STATIC_ASSETS = [
   './',
   './index.html',
   './CSS/styles.css',
@@ -16,39 +15,59 @@ const URLsaCache = [
   './IMG/LogoHorizontal.svg'
 ];
 
-// Instalar el Service Worker
+// INSTALACIÓN: Precargar recursos esenciales
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Toma control de inmediato
   event.waitUntil(
-    caches.open(NombreCache)
-      .then((cache) => {
-        console.log('Cache abierto');
-        return cache.addAll(URLsaCache);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(STATIC_ASSETS);
+    })
   );
 });
 
-// Activar y limpiar cachés antiguas
+// ACTIVACIÓN: Limpiar caches antiguas (si cambias nombre más adelante)
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => 
+    caches.keys().then(keys =>
       Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== NombreCache) {
-            console.log('Cache viejo eliminado:', cache);
-            return caches.delete(cache);
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
         })
       )
     )
   );
+  self.clients.claim(); // Toma control de las páginas sin recarga
 });
 
-// Interceptar fetch y servir de caché
+// FETCH: Responde con cache, y actualiza desde la red automáticamente
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return; // Solo manejar peticiones GET
+
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(event.request).then(cachedResponse => {
+        const fetchPromise = fetch(event.request)
+          .then(networkResponse => {
+            // Cachear solo si es válido
+            if (
+              networkResponse &&
+              networkResponse.status === 200 &&
+              !event.request.url.includes('chrome-extension')
+            ) {
+              cache.put(event.request, networkResponse.clone());
+            }
+            return networkResponse;
+          })
+          .catch(() => {
+            // Si hay fallo de red, usar caché si existe
+            return cachedResponse;
+          });
+
+        // Devuelve respuesta inmediata desde caché si está, si no espera fetch
+        return cachedResponse || fetchPromise;
+      });
+    })
   );
 });
