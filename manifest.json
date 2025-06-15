@@ -1,20 +1,31 @@
 {
-    "name": "E-nnova Design",
-    "short_name": "E-nnova Design",
-    "start_url": "./index.html",
-    "display": "standalone",
-    "background_color": "#121212",
-    "theme_color": "#121212",
-    "description": "Portafolio profesional como diseñador web E-nnova Design.",
-    "orientation": "portrait",
-    "lang": "Spanish",
-    "categories" : ["business", "services"],
-    "icons": [
-      {
-        "src": "IMG/Logo.svg",
-        "sizes": "any",
-        "type": "image/svg+xml"
-      }
-    ]
-  }
-  
+  "name": "E-nnova Design",
+  "short_name": "E-nnova",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "description": "Portafolio profesional como diseñador web E-nnova Design.",
+  "orientation": "portrait",
+  "lang": "es",
+  "categories": ["business", "services"],
+  "icons": [
+    {
+      "src": "IMG/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "IMG/Logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
